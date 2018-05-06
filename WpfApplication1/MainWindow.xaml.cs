@@ -14,7 +14,7 @@ namespace License
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string Name, Path = @"C:\\Users\\Астемир\\Desktop\\StudentCard"; //путь сохранения файла лицензии
+            string Name, Path = @"C:\Users\user\Downloads\StudentCard\StudentCardApp\WpfApplication1\bin\Debug"; //путь сохранения файла лицензии
             DateTime StartDate, End;
             Name = textBox_FIO.Text;
             StartDate = Convert.ToDateTime(DatePicker_Start.SelectedDate);
