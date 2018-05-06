@@ -21,7 +21,7 @@ namespace WpfApplication1
             string File = "license.xml";
             if (!System.IO.File.Exists(File))
             {
-                throw new ApplicationException("Ваша копия программы не лицензирована! Не найден файл лицензии License.xml.\n Обратитесь к автору.");
+                throw new ApplicationException("Отсутствует лицензия!");
             }
 
             XmlDocument doc = new XmlDocument();
@@ -45,21 +45,21 @@ namespace WpfApplication1
             catch (Exception)
             {
 
-                throw new ApplicationException("Ваша копия программы не лицензирована!\nОшибка чтения файла лицензии!\nОбратитесь к автору.");
+                throw new ApplicationException("Отсутствует лицензия!");
             }
 
             if (sig1 != Signature)
             {
-                throw new ApplicationException("Ваша копия программы не лицензирована!\nОшибка чтения файла лицензии!\nОбратитесь к автору.");
+                throw new ApplicationException("Отсутствует лицензия!");
 
             }
             if (DateTime.Now < this.StartDate)
             {
-                throw new ApplicationException(string.Format("Ваша копия программы не лицензирована!\nСрок действия лицензии еще не начался! Начало {0}\nОбратитесь к автору.", StartDate.ToShortDateString()));
+                throw new ApplicationException(string.Format("Отсутствует лицензия!\nСрок действия лицензии еще не начался! Начало {0}\nОбратитесь к автору.", StartDate.ToShortDateString()));
             }
             if (DateTime.Now > this.UpdateTo)
             {
-                throw new ApplicationException(string.Format("Ваша копия программы не лицензирована!\nСрок действия лицензии истек {0}!\nОбратитесь к автору.", UpdateTo.ToShortDateString()));
+                throw new ApplicationException(string.Format("Отсутствует лицензия!\nСрок действия лицензии истек {0}!\nОбратитесь к автору.", UpdateTo.ToShortDateString()));
             }
         }
     }
